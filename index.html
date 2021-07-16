@@ -4,9 +4,138 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大事件</title>
+    <title>大事件主页</title>
+    <!-- 导入layui样式 -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 导入图标样式文件 -->
+    <link rel="stylesheet" href="/assets/fonts/iconfont.css">
+    <!-- 导入index.css -->
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/assets/lib/layui/layui.all.js"></script>
 </head>
 <body>
-    
-</body>
+    <div class="layui-layout layui-layout-admin">
+      <div class="layui-header">
+        <div class="layui-logo layui-hide-xs layui-bg-black">
+            <img src="assets/images/logo.png" alt=""/>
+        </div>
+        <!-- 头部区域（可配合layui 已有的水平导航） -->
+        <ul class="layui-nav layui-layout-right">
+          <li class="layui-nav-item layui-hide layui-show-md-inline-block">
+            <a href="javascript:;" class="userinfo">
+              <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+              <span class="text-avatar">A</span>
+              个人中心
+            </a>
+            <dl class="layui-nav-child">
+              <dd><a href="">基本资料</a></dd>
+              <dd><a href="">更换头像</a></dd>
+              <dd><a href="">重置密码</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+            <a href="javascript:;" id="btnLogout">
+                <span class="iconfont icon-tuichu"></span>
+                退出
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <div class="userinfo">
+                <img src="//tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg" class="layui-nav-img">
+              <span class="text-avatar">A</span>                
+                <span class="welcome">欢迎</span>
+            </div>
+          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+          <ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
+            <li class="layui-nav-item layui-this"><a href="/home/dashboard.html" target="fm">
+                <span class="iconfont icon-home"></span>
+                首页</a></li>
+            <li class="layui-nav-item" >
+              <a class="" href="javascript:;">
+                <span class="iconfont icon-16"></span>
+                文章管理</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    文章类别</a></dd>
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    文章列表</a></dd>
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    发布文章</a></dd>
+              </dl>
+            </li>
+            <li class="layui-nav-item">
+              <a href="javascript:;">
+                <span class="iconfont icon-user"></span>
+                个人中心</a>
+              <dl class="layui-nav-child">
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    基本资料</a></dd>
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    更换头像</a></dd>
+                <dd><a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>   
+                    重置密码</a></dd>
+              </dl>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <iframe src="/home/dashboard.html" name="fm" frameborder="0"></iframe>
+      </div>
+      
+      <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        🄫www.itheima.com-黑马程序员
+      </div>
+    </div>
+    <!-- <script src="./layui/layui.all.js"></script> -->
+    <script>
+    //JS 
+    layui.use(['element', 'layer', 'util'], function(){
+      var element = layui.element
+      ,layer = layui.layer
+      ,util = layui.util
+      ,$ = layui.$;
+      
+      //头部事件
+      util.event('lay-header-event', {
+        //左侧菜单事件
+        menuLeft: function(othis){
+          layer.msg('展开左侧菜单的操作', {icon: 0});
+        }
+        ,menuRight: function(){
+          layer.open({
+            type: 1
+            ,content: '<div style="padding: 15px;">处理右侧面板的操作</div>'
+            ,area: ['260px', '100%']
+            ,offset: 'rt' //右上角
+            ,anim: 5
+            ,shadeClose: true
+          });
+        }
+      });
+      
+    });
+    </script>
+    <!-- 导入layui.js -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 导入jqurey -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 导入自己封装的baseAPI.JS -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- 导入index.js -->
+    <script src="/assets/js/index.js"></script>
+    </body>
 </html>
